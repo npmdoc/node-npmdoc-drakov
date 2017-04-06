@@ -1,0 +1,1519 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/aconex/drakov">drakov (v1.0.3)</a>
+</h1>
+<h4>Mock server that implements the API Blueprint specification</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.drakov">module drakov</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.run">
+            function <span class="apidocSignatureSpan">drakov.</span>run
+            <span class="apidocSignatureSpan">(argv, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.stop">
+            function <span class="apidocSignatureSpan">drakov.</span>stop
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>drakov</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">drakov.</span>content</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">drakov.</span>content_type</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">drakov.</span>debugRequest</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">drakov.</span>handler_filter</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">drakov.</span>logger</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">drakov.</span>middleware</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">drakov.</span>query_comparator</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">drakov.</span>route</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">drakov.</span>setup</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">drakov.</span>spec_schema</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.drakov.content">module drakov.content</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.content.areContentTypesSame">
+            function <span class="apidocSignatureSpan">drakov.content.</span>areContentTypesSame
+            <span class="apidocSignatureSpan">(httpReq, specReq)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.content.contentTypeComparator">
+            function <span class="apidocSignatureSpan">drakov.content.</span>contentTypeComparator
+            <span class="apidocSignatureSpan">(specA)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.content.matchesBody">
+            function <span class="apidocSignatureSpan">drakov.content.</span>matchesBody
+            <span class="apidocSignatureSpan">(httpReq, specReq)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.content.matchesHeader">
+            function <span class="apidocSignatureSpan">drakov.content.</span>matchesHeader
+            <span class="apidocSignatureSpan">(httpReq, specReq)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.content.matchesSchema">
+            function <span class="apidocSignatureSpan">drakov.content.</span>matchesSchema
+            <span class="apidocSignatureSpan">(httpReq, specReq)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.drakov.content_type">module drakov.content_type</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.content_type.isFormUrlEncoded">
+            function <span class="apidocSignatureSpan">drakov.content_type.</span>isFormUrlEncoded
+            <span class="apidocSignatureSpan">(contentType)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.content_type.isJson">
+            function <span class="apidocSignatureSpan">drakov.content_type.</span>isJson
+            <span class="apidocSignatureSpan">(contentType)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.content_type.isMultipart">
+            function <span class="apidocSignatureSpan">drakov.content_type.</span>isMultipart
+            <span class="apidocSignatureSpan">(contentType)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.drakov.debugRequest">module drakov.debugRequest</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.debugRequest.notFoundHandler">
+            function <span class="apidocSignatureSpan">drakov.debugRequest.</span>notFoundHandler
+            <span class="apidocSignatureSpan">(argv)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.drakov.drakov">module drakov.drakov</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.drakov.run">
+            function <span class="apidocSignatureSpan">drakov.drakov.</span>run
+            <span class="apidocSignatureSpan">(argv, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.drakov.stop">
+            function <span class="apidocSignatureSpan">drakov.drakov.</span>stop
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.drakov.handler_filter">module drakov.handler_filter</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.handler_filter.filterHandlers">
+            function <span class="apidocSignatureSpan">drakov.handler_filter.</span>filterHandlers
+            <span class="apidocSignatureSpan">(req, handlers)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.drakov.logger">module drakov.logger</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.logger.log">
+            function <span class="apidocSignatureSpan">drakov.logger.</span>log
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.logger.setStealthMode">
+            function <span class="apidocSignatureSpan">drakov.logger.</span>setStealthMode
+            <span class="apidocSignatureSpan">(isStealthMode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.logger.stringfy">
+            function <span class="apidocSignatureSpan">drakov.logger.</span>stringfy
+            <span class="apidocSignatureSpan">(matched)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.drakov.middleware">module drakov.middleware</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.middleware.init">
+            function <span class="apidocSignatureSpan">drakov.middleware.</span>init
+            <span class="apidocSignatureSpan">(app, argv, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.drakov.query_comparator">module drakov.query_comparator</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.query_comparator.countMatchingQueryParms">
+            function <span class="apidocSignatureSpan">drakov.query_comparator.</span>countMatchingQueryParms
+            <span class="apidocSignatureSpan">(handlers, reqQueryParams)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.query_comparator.noParamComparator">
+            function <span class="apidocSignatureSpan">drakov.query_comparator.</span>noParamComparator
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.query_comparator.queryParameterComparator">
+            function <span class="apidocSignatureSpan">drakov.query_comparator.</span>queryParameterComparator
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.drakov.route">module drakov.route</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.route.getRouteHandlers">
+            function <span class="apidocSignatureSpan">drakov.route.</span>getRouteHandlers
+            <span class="apidocSignatureSpan">(method, parsedUrl, action)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.drakov.setup">module drakov.setup</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">drakov.setup.</span>isSSL</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.setup.startServer">
+            function <span class="apidocSignatureSpan">drakov.setup.</span>startServer
+            <span class="apidocSignatureSpan">(argv, app, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.drakov.spec_schema">module drakov.spec_schema</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.spec_schema.hasSchema">
+            function <span class="apidocSignatureSpan">drakov.spec_schema.</span>hasSchema
+            <span class="apidocSignatureSpan">(spec)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.spec_schema.matchWithSchema">
+            function <span class="apidocSignatureSpan">drakov.spec_schema.</span>matchWithSchema
+            <span class="apidocSignatureSpan">(json, schema)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.drakov.spec_schema.validateAndParseSchema">
+            function <span class="apidocSignatureSpan">drakov.spec_schema.</span>validateAndParseSchema
+            <span class="apidocSignatureSpan">(spec)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.drakov" id="apidoc.module.drakov">module drakov</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.run" id="apidoc.element.drakov.run">
+        function <span class="apidocSignatureSpan">drakov.</span>run
+        <span class="apidocSignatureSpan">(argv, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">run = function (argv, cb) {
+
+    logger.setStealthMode(argv.stealthmode);
+
+    console.log('   DRAKOV STARTED   '.green.bold.inverse);
+
+    var app = express();
+
+    // REQUEST MIDDLEWARE
+    app.use(requestUtils.logger);
+    app.use(requestUtils.getBody);
+
+    // SETUP RESPONSE MIDDLEWARE
+    argv.drakovHeader = true;
+    middleware.init(app, argv, function(err, middlewareFunction) {
+        if (err) {
+            throw err;
+        }
+
+        var discoverabilityModule;
+
+        app.use(middlewareFunction);
+        server = setup.startServer(argv, app, cb);
+        if (argv.discover &amp;&amp; typeof argv.discover === 'string') {
+            discoverabilityModule = require(argv.discover);
+        } else {
+            app.set('views', path.join(__dirname, '..', 'views'));
+            app.set('view engine', 'jade');
+            discoverabilityModule = require('./middleware/discover');
+        }
+        if (argv.discover) {
+            app.get('/drakov', discoverabilityModule(argv));
+        }
+
+        //404
+        app.use(debugRequest.notFoundHandler(argv));
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    disableCORS: true,
+    sslKeyFile: '/path/to/ssl/key.key',
+    sslCrtFile: '/path/to/ssl/cert.crt',
+    delay: 2000,
+    method: ['DELETE','OPTIONS']
+};
+
+drakov.<span class="apidocCodeKeywordSpan">run</span>(argv, function(){
+    // started Drakov
+    drakov.stop(function() {
+        // stopped Drakov
+    });
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.stop" id="apidoc.element.drakov.stop">
+        function <span class="apidocSignatureSpan">drakov.</span>stop
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stop = function (cb) {
+    var runCb = function() {
+        if (cb) {
+            cb();
+        }
+    };
+    try {
+        server.close(function() {
+            console.log('   DRAKOV STOPPED   '.red.bold.inverse);
+            runCb();
+        });
+    } catch (e) {
+        runCb();
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        sslCrtFile: '/path/to/ssl/cert.crt',
+        delay: 2000,
+        method: ['DELETE','OPTIONS']
+    };
+
+    drakov.run(argv, function(){
+        // started Drakov
+        drakov.<span class="apidocCodeKeywordSpan">stop</span>(function() {
+            // stopped Drakov
+        });
+    });
+
+
+## Using as an Express middleware
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.drakov.content" id="apidoc.module.drakov.content">module drakov.content</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.content.areContentTypesSame" id="apidoc.element.drakov.content.areContentTypesSame">
+        function <span class="apidocSignatureSpan">drakov.content.</span>areContentTypesSame
+        <span class="apidocSignatureSpan">(httpReq, specReq)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">areContentTypesSame = function (httpReq, specReq) {
+    var actual = getMediaTypeFromHttpReq(httpReq);
+    var expected = getMediaTypeFromSpecReq(specReq);
+
+    var result = !expected || actual === expected;
+    logger.log('[MATCHING]'.yellow,'by request content type:', expected, 'actual:', actual, logger.stringfy(result));
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+var content = require('./content');
+var queryComparator = require('./query-comparator');
+
+var filterContentType = function (req) {
+return function (handler) {
+    return content.<span class="apidocCodeKeywordSpan">areContentTypesSame</span>(req, handler.request);
+};
+};
+
+var filterRequestHeader = function (req) {
+return function (handler) {
+    return content.matchesHeader(req, handler.request);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.content.contentTypeComparator" id="apidoc.element.drakov.content.contentTypeComparator">
+        function <span class="apidocSignatureSpan">drakov.content.</span>contentTypeComparator
+        <span class="apidocSignatureSpan">(specA)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">contentTypeComparator = function (specA) {
+
+    function hasContentTypeHeader(spec){
+        if (spec.request &amp;&amp; spec.request.headers){
+            return spec.request.headers.filter(function(header){ return header.name.toLowerCase() === 'content-type';}).length &gt;
+0;
+        }
+        return false;
+    }
+
+    return !hasContentTypeHeader(specA)? 1 : -1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.content.matchesBody" id="apidoc.element.drakov.content.matchesBody">
+        function <span class="apidocSignatureSpan">drakov.content.</span>matchesBody
+        <span class="apidocSignatureSpan">(httpReq, specReq)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">matchesBody = function (httpReq, specReq) {
+    if (!specReq) {
+        return true;
+    }
+
+    var contentType = getMediaTypeFromHttpReq(httpReq);
+
+    if (contentTypeChecker.isMultipart(contentType)) {
+        return true;
+    }
+
+    var reqBody = getBodyContent(httpReq, isJson(contentType));
+    var specBody = getBodyContent(specReq, isJson(contentType));
+    var result = lodash.isEqual(reqBody, specBody);
+
+    logger.log('[MATCHING]'.yellow,'by request body content', logger.stringfy(result));
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return function (handler) {
+    return content.matchesHeader(req, handler.request);
+};
+};
+
+var filterRequestBody = function (req) {
+return function (handler) {
+    return content.<span class="apidocCodeKeywordSpan">matchesBody</span>(req, handler.request);
+};
+};
+
+var filterSchema = function (req) {
+return function (handler) {
+    return content.matchesSchema(req, handler.request);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.content.matchesHeader" id="apidoc.element.drakov.content.matchesHeader">
+        function <span class="apidocSignatureSpan">drakov.content.</span>matchesHeader
+        <span class="apidocSignatureSpan">(httpReq, specReq)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">matchesHeader = function (httpReq, specReq) {
+    if (!specReq || !specReq.headers){
+        return true;
+    }
+
+    function removeContentTypeHeader(header){
+        return header.name.toLowerCase() !== 'content-type';
+    }
+
+    function containsHeader( header ){
+        var httpReqHeader = header.name.toLowerCase();
+        var result = httpReq.headers.hasOwnProperty(httpReqHeader) &amp;&amp;
+          httpReq.headers[httpReqHeader] === header.value;
+
+        logger.log('[MATCHING]'.yellow,'by request header', httpReqHeader, '=', header.value, logger.stringfy(result));
+        return result;
+    }
+
+    return specReq.headers.filter(removeContentTypeHeader).every(containsHeader);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return function (handler) {
+    return content.areContentTypesSame(req, handler.request);
+};
+};
+
+var filterRequestHeader = function (req) {
+return function (handler) {
+    return content.<span class="apidocCodeKeywordSpan">matchesHeader</span>(req, handler.request);
+};
+};
+
+var filterRequestBody = function (req) {
+return function (handler) {
+    return content.matchesBody(req, handler.request);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.content.matchesSchema" id="apidoc.element.drakov.content.matchesSchema">
+        function <span class="apidocSignatureSpan">drakov.content.</span>matchesSchema
+        <span class="apidocSignatureSpan">(httpReq, specReq)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">matchesSchema = function (httpReq, specReq) {
+    if (!specReq){
+        return true;
+    }
+
+    var contentType = getMediaTypeFromHttpReq(httpReq);
+    var reqBody = getBodyContent(httpReq, isJson(contentType));
+    var result =  specSchema.matchWithSchema(reqBody, specReq.schema);
+    logger.log('[MATCHING]'.yellow,'by request body schema', logger.stringfy(result));
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return function (handler) {
+    return content.matchesBody(req, handler.request);
+};
+};
+
+var filterSchema = function (req) {
+return function (handler) {
+    return content.<span class="apidocCodeKeywordSpan">matchesSchema</span>(req, handler.request);
+};
+};
+
+exports.filterHandlers = function (req, handlers) {
+if (handlers) {
+    var filteredHandlers;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.drakov.content_type" id="apidoc.module.drakov.content_type">module drakov.content_type</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.content_type.isFormUrlEncoded" id="apidoc.element.drakov.content_type.isFormUrlEncoded">
+        function <span class="apidocSignatureSpan">drakov.content_type.</span>isFormUrlEncoded
+        <span class="apidocSignatureSpan">(contentType)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isFormUrlEncoded = function (contentType) {
+    return match(/application\/x-www-form-urlencoded/i, contentType);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.content_type.isJson" id="apidoc.element.drakov.content_type.isJson">
+        function <span class="apidocSignatureSpan">drakov.content_type.</span>isJson
+        <span class="apidocSignatureSpan">(contentType)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isJson = function (contentType) {
+    return match(/json/i, contentType);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var contentTypeChecker = require('./content-type');
+
+exports.notFoundHandler = function(argv) {
+
+    function debug(req){
+
+function getBody(req) {
+    if (contentTypeChecker.<span class="apidocCodeKeywordSpan">isJson</span>(req.get('Content-Type'))){
+        try {
+            return JSON.parse(req.body);
+        } catch (e) {
+            return req.body;
+        }
+    }
+    return req.body;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.content_type.isMultipart" id="apidoc.element.drakov.content_type.isMultipart">
+        function <span class="apidocSignatureSpan">drakov.content_type.</span>isMultipart
+        <span class="apidocSignatureSpan">(contentType)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isMultipart = function (contentType) {
+    return match(/multipart\/form-data/i, contentType);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+exports.matchesBody = function(httpReq, specReq) {
+if (!specReq) {
+    return true;
+}
+
+var contentType = getMediaTypeFromHttpReq(httpReq);
+
+if (contentTypeChecker.<span class="apidocCodeKeywordSpan">isMultipart</span>(contentType)) {
+    return true;
+}
+
+var reqBody = getBodyContent(httpReq, isJson(contentType));
+var specBody = getBodyContent(specReq, isJson(contentType));
+var result = lodash.isEqual(reqBody, specBody);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.drakov.debugRequest" id="apidoc.module.drakov.debugRequest">module drakov.debugRequest</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.debugRequest.notFoundHandler" id="apidoc.element.drakov.debugRequest.notFoundHandler">
+        function <span class="apidocSignatureSpan">drakov.debugRequest.</span>notFoundHandler
+        <span class="apidocSignatureSpan">(argv)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">notFoundHandler = function (argv) {
+
+    function debug(req){
+
+        function getBody(req) {
+            if (contentTypeChecker.isJson(req.get('Content-Type'))){
+                try {
+                    return JSON.parse(req.body);
+                } catch (e) {
+                    return req.body;
+                }
+            }
+            return req.body;
+        }
+
+        var debugObj = {
+            originalUrl: req.originalUrl,
+            body: getBody(req),
+            method: req.method,
+            headers: req.headers,
+            query: req.query
+        };
+
+        return debugObj;
+
+    }
+
+    return function (req, res) {
+        if (!res.headersSent){
+            if (argv.debugMode) {
+                var debugRequest = debug(req);
+                logger.log('[DEBUG]'.yellow, 'mismatching request:', JSON.stringify(debugRequest));
+                res.status(404).json(debugRequest);
+                return;
+            }
+            res.status(404).send('Endpoint not found');
+        }
+    };
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        discoverabilityModule = require('./middleware/discover');
+    }
+    if (argv.discover) {
+        app.get('/drakov', discoverabilityModule(argv));
+    }
+
+    //404
+    app.use(debugRequest.<span class="apidocCodeKeywordSpan">notFoundHandler</span>(argv));
+});
+};
+
+exports.stop = function(cb) {
+var runCb = function() {
+    if (cb) {
+        cb();
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.drakov.drakov" id="apidoc.module.drakov.drakov">module drakov.drakov</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.drakov.run" id="apidoc.element.drakov.drakov.run">
+        function <span class="apidocSignatureSpan">drakov.drakov.</span>run
+        <span class="apidocSignatureSpan">(argv, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">run = function (argv, cb) {
+
+    logger.setStealthMode(argv.stealthmode);
+
+    console.log('   DRAKOV STARTED   '.green.bold.inverse);
+
+    var app = express();
+
+    // REQUEST MIDDLEWARE
+    app.use(requestUtils.logger);
+    app.use(requestUtils.getBody);
+
+    // SETUP RESPONSE MIDDLEWARE
+    argv.drakovHeader = true;
+    middleware.init(app, argv, function(err, middlewareFunction) {
+        if (err) {
+            throw err;
+        }
+
+        var discoverabilityModule;
+
+        app.use(middlewareFunction);
+        server = setup.startServer(argv, app, cb);
+        if (argv.discover &amp;&amp; typeof argv.discover === 'string') {
+            discoverabilityModule = require(argv.discover);
+        } else {
+            app.set('views', path.join(__dirname, '..', 'views'));
+            app.set('view engine', 'jade');
+            discoverabilityModule = require('./middleware/discover');
+        }
+        if (argv.discover) {
+            app.get('/drakov', discoverabilityModule(argv));
+        }
+
+        //404
+        app.use(debugRequest.notFoundHandler(argv));
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    disableCORS: true,
+    sslKeyFile: '/path/to/ssl/key.key',
+    sslCrtFile: '/path/to/ssl/cert.crt',
+    delay: 2000,
+    method: ['DELETE','OPTIONS']
+};
+
+drakov.<span class="apidocCodeKeywordSpan">run</span>(argv, function(){
+    // started Drakov
+    drakov.stop(function() {
+        // stopped Drakov
+    });
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.drakov.stop" id="apidoc.element.drakov.drakov.stop">
+        function <span class="apidocSignatureSpan">drakov.drakov.</span>stop
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stop = function (cb) {
+    var runCb = function() {
+        if (cb) {
+            cb();
+        }
+    };
+    try {
+        server.close(function() {
+            console.log('   DRAKOV STOPPED   '.red.bold.inverse);
+            runCb();
+        });
+    } catch (e) {
+        runCb();
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        sslCrtFile: '/path/to/ssl/cert.crt',
+        delay: 2000,
+        method: ['DELETE','OPTIONS']
+    };
+
+    drakov.run(argv, function(){
+        // started Drakov
+        drakov.<span class="apidocCodeKeywordSpan">stop</span>(function() {
+            // stopped Drakov
+        });
+    });
+
+
+## Using as an Express middleware
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.drakov.handler_filter" id="apidoc.module.drakov.handler_filter">module drakov.handler_filter</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.handler_filter.filterHandlers" id="apidoc.element.drakov.handler_filter.filterHandlers">
+        function <span class="apidocSignatureSpan">drakov.handler_filter.</span>filterHandlers
+        <span class="apidocSignatureSpan">(req, handlers)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filterHandlers = function (req, handlers) {
+    if (handlers) {
+        var filteredHandlers;
+
+        handlers.sort(content.contentTypeComparator);
+
+        var queryParams = req.query;
+        if (Object.keys(queryParams).length === 0) {
+            handlers.sort(queryComparator.noParamComparator);
+        } else {
+            queryComparator.countMatchingQueryParms(handlers, queryParams);
+            handlers.sort(queryComparator.queryParameterComparator);
+        }
+
+        filteredHandlers = handlers
+            .filter(filterRequestHeader(req))
+            .filter(filterContentType(req));
+
+        var matchRequestBodyHandlers = filteredHandlers.filter(filterRequestBody(req));
+
+        if (matchRequestBodyHandlers.length &gt; 0) {
+            return matchRequestBodyHandlers[0];
+        }
+
+        var matchSchemaHandlers = filteredHandlers.filter(filterSchema(req));
+
+        if (matchSchemaHandlers.length &gt; 0) {
+            return matchSchemaHandlers[0];
+        }
+    }
+
+    return null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.drakov.logger" id="apidoc.module.drakov.logger">module drakov.logger</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.logger.log" id="apidoc.element.drakov.logger.log">
+        function <span class="apidocSignatureSpan">drakov.logger.</span>log
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">log = function () {
+    if (stealthMode) {
+        return;
+    }
+    console.log(Array.prototype.slice.call(arguments).join(' '));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### Code conventions
+* Setup your editor to use the `.editorconfig` and `.jshintrc` files included in the project
+* We use 4 spaces for tabs
+* Most of the style issues should be resolve as long as you run `npm test` and run against the jshinting rules
+* We prefer readability over compact code
+
+### Logging in your code
+* Include the `lib/logger` module and use `logger.<span class="apidocCodeKeywordSpan">log</span>()`, this allows your logging be
+ properly disabled in Drakov's stealth mode
+* Always have a type qualifier in square brackets in from of your message in white, `logger.log('[TYPE]'.white`, '
+;Something is happening');`
+* We don't have any guidelines for how to log, except that you should have your type a different colour from your actual message
+ (better logging is in our roadmap)
+
+### Functionality that adds CLI arguments
+* Make sure you add the new argument property to the `yargsConfigOptions` object in the [arguments module](https://github.com/Aconex
+/drakov/blob/master/lib/arguments.js#L3)
+
+### Middleware functionality
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.logger.setStealthMode" id="apidoc.element.drakov.logger.setStealthMode">
+        function <span class="apidocSignatureSpan">drakov.logger.</span>setStealthMode
+        <span class="apidocSignatureSpan">(isStealthMode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setStealthMode = function (isStealthMode) {
+    stealthMode = isStealthMode;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var middleware = require('./middleware');
+var debugRequest = require('./debugRequest');
+
+var server = null;
+
+exports.run = function(argv, cb) {
+
+logger.<span class="apidocCodeKeywordSpan">setStealthMode</span>(argv.stealthmode);
+
+console.log('   DRAKOV STARTED   '.green.bold.inverse);
+
+var app = express();
+
+// REQUEST MIDDLEWARE
+app.use(requestUtils.logger);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.logger.stringfy" id="apidoc.element.drakov.logger.stringfy">
+        function <span class="apidocSignatureSpan">drakov.logger.</span>stringfy
+        <span class="apidocSignatureSpan">(matched)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stringfy = function (matched) {
+  return matched ? 'MATCHED'.green : 'NOT_MATCHED'.red;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+exports.areContentTypesSame = function(httpReq, specReq) {
+var actual = getMediaTypeFromHttpReq(httpReq);
+var expected = getMediaTypeFromSpecReq(specReq);
+
+var result = !expected || actual === expected;
+logger.log('[MATCHING]'.yellow,'by request content type:', expected, 'actual:', actual, logger.<span class="apidocCodeKeywordSpan">stringfy</span>(result));
+return result;
+};
+
+exports.matchesBody = function(httpReq, specReq) {
+if (!specReq) {
+    return true;
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.drakov.middleware" id="apidoc.module.drakov.middleware">module drakov.middleware</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.middleware.init" id="apidoc.element.drakov.middleware.init">
+        function <span class="apidocSignatureSpan">drakov.middleware.</span>init
+        <span class="apidocSignatureSpan">(app, argv, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (app, argv, cb) {
+    bootstrapMiddleware(app, argv);
+    var options = {sourceFiles: argv.sourceFiles, autoOptions: argv.autoOptions};
+    routeHandlers(options, function(err, middleware) {
+        cb(err, middleware);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    sslKeyFile: '/path/to/ssl/key.key',
+    sslCrtFile: '/path/to/ssl/cert.crt',
+    delay: 2000,
+    method: ['DELETE','OPTIONS']
+};
+
+var app = express();
+drakovMiddleware.<span class="apidocCodeKeywordSpan">init</span>(app, argv, function(err, middlewareFunction) {
+    if (err) {
+        throw err;
+    }
+    app.use(middlewareFunction);
+    app.listen(argv.serverPort);
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.drakov.query_comparator" id="apidoc.module.drakov.query_comparator">module drakov.query_comparator</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.query_comparator.countMatchingQueryParms" id="apidoc.element.drakov.query_comparator.countMatchingQueryParms">
+        function <span class="apidocSignatureSpan">drakov.query_comparator.</span>countMatchingQueryParms
+        <span class="apidocSignatureSpan">(handlers, reqQueryParams)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">countMatchingQueryParms = function (handlers, reqQueryParams){
+    handlers.forEach(function(handler){
+        handler.matchingQueryParams = 0;
+        handler.exactMatchingQueryParams = 0;
+        handler.nonMatchingQueryParams = 0;
+        var specQueryParams = handler.parsedUrl.queryParams;
+        for(var param in specQueryParams){
+            var value = specQueryParams[param];
+            if (reqQueryParams.hasOwnProperty(param)){
+                var reqValue = reqQueryParams[param];
+                if (_.isEqual(value, reqValue)){
+                    handler.matchingQueryParams += 1;
+                    handler.exactMatchingQueryParams += 1;
+                }else if (value === ''){
+                    handler.matchingQueryParams += 1;
+                }
+            }else{
+                handler.nonMatchingQueryParams +=1;
+            }
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+handlers.sort(content.contentTypeComparator);
+
+var queryParams = req.query;
+if (Object.keys(queryParams).length === 0) {
+    handlers.sort(queryComparator.noParamComparator);
+} else {
+    queryComparator.<span class="apidocCodeKeywordSpan">countMatchingQueryParms</span>(handlers, queryParams);
+    handlers.sort(queryComparator.queryParameterComparator);
+}
+
+filteredHandlers = handlers
+    .filter(filterRequestHeader(req))
+    .filter(filterContentType(req));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.query_comparator.noParamComparator" id="apidoc.element.drakov.query_comparator.noParamComparator">
+        function <span class="apidocSignatureSpan">drakov.query_comparator.</span>noParamComparator
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">noParamComparator = function (a, b){
+    return (Object.keys(a.parsedUrl.queryParams).length - Object.keys(b.parsedUrl.queryParams).length);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.query_comparator.queryParameterComparator" id="apidoc.element.drakov.query_comparator.queryParameterComparator">
+        function <span class="apidocSignatureSpan">drakov.query_comparator.</span>queryParameterComparator
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">queryParameterComparator = function (a, b){
+    if (b.matchingQueryParams === a.matchingQueryParams){
+        if (b.exactMatchingQueryParams === a.exactMatchingQueryParams){
+            return (a.nonMatchingQueryParams - b.nonMatchingQueryParams);
+        }
+        return (b.exactMatchingQueryParams - a.exactMatchingQueryParams);
+    }
+    return (b.matchingQueryParams - a.matchingQueryParams);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.drakov.route" id="apidoc.module.drakov.route">module drakov.route</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.route.getRouteHandlers" id="apidoc.element.drakov.route.getRouteHandlers">
+        function <span class="apidocSignatureSpan">drakov.route.</span>getRouteHandlers
+        <span class="apidocSignatureSpan">(method, parsedUrl, action)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getRouteHandlers = function (method, parsedUrl, action) {
+     return action.examples.map(function (example) {
+        return {
+            action: action,
+            parsedUrl: parsedUrl,
+            response: example.responses[0],
+            request: 'undefined' === typeof example.requests[0] ? null : specSchema.validateAndParseSchema(example.requests[0]),
+            execute: function (req, res) {
+                var buildResponseBody = function(specBody){
+                    switch (typeof specBody) {
+                        case 'boolean':
+                        case 'number':
+                        case 'string':
+                            return new Buffer(specBody);
+                        case 'object':
+                            return new Buffer(JSON.stringify(specBody));
+                        default:
+                            return specBody;
+                    }
+                };
+
+                logger.log('[DRAKOV]'.red, action.method.green, parsedUrl.uriTemplate.yellow,
+                    (this.request &amp;&amp; this.request.description ? this.request.description : action.name).blue);
+
+                this.response.headers.forEach(function (header) {
+                    res.set(header.name, header.value);
+                });
+
+                res.status(+this.response.name);
+                res.send(buildResponseBody(this.response.body));
+            }
+        };
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.drakov.setup" id="apidoc.module.drakov.setup">module drakov.setup</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.setup.startServer" id="apidoc.element.drakov.setup.startServer">
+        function <span class="apidocSignatureSpan">drakov.setup.</span>startServer
+        <span class="apidocSignatureSpan">(argv, app, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">startServer = function (argv, app, cb) {
+
+    var startCb = function() {
+        console.log(('   Drakov ' + version + '     ').bold.inverse, 'Listening on port ' + argv.serverPort.toString().bold.red);
+        if (argv.stealthmode) {
+            console.log('   STEALTH MODE     '.grey.bold.inverse, 'running silently'.grey);
+        }
+
+        if (argv.public) {
+            console.log('   PUBLIC MODE     '.grey.bold.inverse, 'running publicly'.grey);
+        }
+
+        if (cb) {
+          cb();
+        }
+    };
+
+    var server = null;
+    if (argv.sslKeyFile &amp;&amp; argv.sslCrtFile) {
+        exports.isSSL = true;
+        var sslOptions = {
+            key: fs.readFileSync(argv.sslKeyFile, 'utf8' ),
+            cert: fs.readFileSync(argv.sslCrtFile, 'utf8' ),
+            rejectUnauthorized: false
+        };
+        server = https.createServer(sslOptions, app);
+    } else {
+        server = app;
+    }
+
+    if (argv.public) {
+        return server.listen(argv.serverPort, startCb);
+    }
+    return server.listen(argv.serverPort, 'localhost', startCb);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (err) {
+    throw err;
+}
+
+var discoverabilityModule;
+
+app.use(middlewareFunction);
+server = setup.<span class="apidocCodeKeywordSpan">startServer</span>(argv, app, cb);
+if (argv.discover &amp;&amp; typeof argv.discover === 'string') {
+    discoverabilityModule = require(argv.discover);
+} else {
+    app.set('views', path.join(__dirname, '..', 'views'));
+    app.set('view engine', 'jade');
+    discoverabilityModule = require('./middleware/discover');
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.drakov.spec_schema" id="apidoc.module.drakov.spec_schema">module drakov.spec_schema</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.spec_schema.hasSchema" id="apidoc.element.drakov.spec_schema.hasSchema">
+        function <span class="apidocSignatureSpan">drakov.spec_schema.</span>hasSchema
+        <span class="apidocSignatureSpan">(spec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hasSchema = function (spec){
+    return !!spec.schema;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+exports.matchWithSchema = function (json, schema){
+    return tv4.validate(json, schema);
+};
+
+exports.validateAndParseSchema = function (spec){
+    if (this.<span class="apidocCodeKeywordSpan">hasSchema</span>(spec)){
+        spec.schema = JSON.parse(spec.schema);
+        validateSchema(spec.schema);
+    }
+    return spec;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.spec_schema.matchWithSchema" id="apidoc.element.drakov.spec_schema.matchWithSchema">
+        function <span class="apidocSignatureSpan">drakov.spec_schema.</span>matchWithSchema
+        <span class="apidocSignatureSpan">(json, schema)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">matchWithSchema = function (json, schema){
+    return tv4.validate(json, schema);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+exports.matchesSchema = function(httpReq, specReq) {
+if (!specReq){
+    return true;
+}
+
+var contentType = getMediaTypeFromHttpReq(httpReq);
+var reqBody = getBodyContent(httpReq, isJson(contentType));
+var result =  specSchema.<span class="apidocCodeKeywordSpan">matchWithSchema</span>(reqBody, specReq.schema);
+logger.log('[MATCHING]'.yellow,'by request body schema', logger.stringfy(result));
+return result;
+};
+
+exports.matchesHeader = function(httpReq, specReq) {
+if (!specReq || !specReq.headers){
+    return true;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.drakov.spec_schema.validateAndParseSchema" id="apidoc.element.drakov.spec_schema.validateAndParseSchema">
+        function <span class="apidocSignatureSpan">drakov.spec_schema.</span>validateAndParseSchema
+        <span class="apidocSignatureSpan">(spec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validateAndParseSchema = function (spec){
+    if (this.hasSchema(spec)){
+        spec.schema = JSON.parse(spec.schema);
+        validateSchema(spec.schema);
+    }
+    return spec;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+exports.getRouteHandlers = function (method, parsedUrl, action) {
+return action.examples.map(function (example) {
+   return {
+       action: action,
+       parsedUrl: parsedUrl,
+       response: example.responses[0],
+       request: 'undefined' === typeof example.requests[0] ? null : specSchema.<span class="apidocCodeKeywordSpan">validateAndParseSchema
+</span>(example.requests[0]),
+       execute: function (req, res) {
+           var buildResponseBody = function(specBody){
+               switch (typeof specBody) {
+                   case 'boolean':
+                   case 'number':
+                   case 'string':
+                       return new Buffer(specBody);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
