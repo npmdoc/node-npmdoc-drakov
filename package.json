@@ -1,7 +1,7 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
     "buildNpmdoc": "drakov",
-    "description": "api documentation for [drakov (v1.0.3)](https://github.com/aconex/drakov) [![npm package](https://img.shields.io/npm/v/npmdoc-drakov.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-drakov) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-drakov.svg)](https://travis-ci.org/npmdoc/node-npmdoc-drakov)",
+    "description": "#### api documentation for  [drakov (v1.0.3)](https://github.com/aconex/drakov)  [![npm package](https://img.shields.io/npm/v/npmdoc-drakov.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-drakov) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-drakov.svg)](https://travis-ci.org/npmdoc/node-npmdoc-drakov)",
     "devDependencies": {
         "drakov": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
@@ -36,5 +36,5 @@
         "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.1"
+    "version": "0.0.2"
 }
